@@ -1,0 +1,7 @@
+#! /bin/sh
+
+. utils
+
+assert $PORT "==" "8001"
+assert $NODE_ENV "==" "test"
+assert $USER "==" "auser"

@@ -1,9 +1,13 @@
 {
+  "version": "0.1.1",
   "name": "env-sandbox",
-  "version": "0.1.0",
+  "description": "Sandbox bash commands with environment variables.",
   "main": "index.js",
   "author": "ludbek",
   "license": "MIT",
+  "scripts": {
+	"test": "cd test/ && devenv ./test_dev && testenv ./test_test"
+  },
   "bin": {
     "testenv": "./bin/test",
     "devenv": "./bin/dev"
