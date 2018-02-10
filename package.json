@@ -1,0 +1,11 @@
+{
+  "name": "env-sandbox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ludbek",
+  "license": "MIT",
+  "bin": {
+    "testenv": "./bin/testenv",
+    "devenv": "./bin/devenv"
+  }
+}
