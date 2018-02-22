@@ -25,8 +25,4 @@ if [ -f 'test.env' ]; then
 	eval $(grep -v '^#' test.env | sed 's/^/export /g')
 fi
 
-if [ -f 'user.env' ]; then
-	eval $(grep -v '^#' user.env | sed 's/^/export /g')
-fi
-
 $@
