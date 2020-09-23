@@ -1,13 +1,41 @@
 ## Introduction
-`env-sandbox` lets one run same command in different environments.
+`env-sandbox` lets one run a command with specified environment variables.
 It helps to keep the development and test commands as simple and clean as possible.
 
-Below is an example of the content an environment file.
+Consider following project directory
 ```
-# example content of an environment file
+.
+dev.env
+run.sh
+```
 
+Content of the file `dev.env`
+```
+# dev.env
 PORT=8000
 DATABASE_URL=postgres://@127.0.0.1:5432/awesomedb
+```
+
+Content of the file `run.sh`
+```
+# run.sh
+#!/bin/sh
+echo $PORT
+echo $DATABASE_URL
+```
+
+If we run `de ./run.sh` we will get following output in the terminal
+```
+$ de ./run.sh
+8000
+postgres://@127.0.0.1:5432/awesomedb
+```
+
+## Installation
+Issue following command in a terminal to install `env-sandbox`
+
+```
+curl -o  /tmp/env-sandbox https://raw.githubusercontent.com/ludbek/env-sandbox/master/install && sh /tmp/env-sandbox
 ```
 
 ## Usage
@@ -16,8 +44,7 @@ DATABASE_URL=postgres://@127.0.0.1:5432/awesomedb
 de <cmd>
 ```
 
-It runs a command inside development environment.
-It exports environment variables from `dev.env` before running a command.
+It exports environment variables from `dev.env` and runs a command.
 It exports environment variables from `user.env` if available.
 
 ### Test environment
@@ -25,14 +52,11 @@ It exports environment variables from `user.env` if available.
 te <cmd>
 ```
 
-It runs a command inside test environment.
-It exports environment variables from `dev.env` and `test.env` before running a command.
-It exports environment variables from `user.env` if available.
+It exports environment variables from `dev.env` and `test.env`, and runs a command.
 
 ### Other environment
 ```
 xe <path-to-env-file> <cmd>
 ```
 
-It runs a command inside the environment created by the specified file.
-It exports environment variables from the specified file.
+It exports environment variables in the given env file and runs a command.

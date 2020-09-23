@@ -1,0 +1,26 @@
+#! /bin/sh
+
+repo=https://github.com/ludbek/bro.git
+install_dir=~/env-sandbox
+
+# Check if git is installed
+command -v git > /dev/null || {
+	echo "Please install 'git' first."
+	exit 2;
+}
+
+# Abort if 'env-sandbox' is already installed
+if command -v de > /dev/null && [ -d $install_dir  ]; then
+	echo "'env-sandbox' is already installed at '$install_dir'. Please use 'git' to update it.";
+	exit 1;
+fi
+
+# Clone bro to home directory
+git clone  $repo $install_dir || {
+	echo "Could not install 'env-sandbox'. Please report the issue at 'https://github.com/ludbek/env-sandbox/issues'."
+	exit 2
+}
+
+echo "\n### env-sandbox" >> ~/.bashrc
+echo "source ~/env-sandbox/activate" >> ~/.bashrc
+echo "\nPlease source ~/.bashrc ."
