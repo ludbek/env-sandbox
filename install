@@ -1,6 +1,6 @@
 #! /bin/sh
 
-repo=https://github.com/ludbek/bro.git
+repo=https://github.com/ludbek/env-sandbox.git
 install_dir=~/env-sandbox
 
 # Check if git is installed

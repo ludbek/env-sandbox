@@ -1,6 +1,5 @@
 ## Introduction
 `env-sandbox` lets one run a command with specified environment variables.
-It helps to keep the development and test commands as simple and clean as possible.
 
 Consider following project directory
 ```
